@@ -7,10 +7,10 @@ import { UsersModule } from './users/users.module';
 @Module({
   imports: [UsersModule, TypeOrmModule.forRoot({
     type: 'postgres',
-    host: 'localhost',
+    host: process.env.DB_HOST,
     port: 5432,
-    username: 'postgres',
-    password: 'postgres',
+    username: process.env.DB_USER,
+    password: process.env.DB_PASS,
     database: 'postgres',
     autoLoadEntities: true,
     synchronize: true
